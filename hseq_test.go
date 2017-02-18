@@ -2,6 +2,12 @@ package hseq
 
 import "testing"
 
+type testStruct struct {
+	ID           int64
+	UniqueNumber int
+	UniqueString string
+}
+
 func TestGetSeq(t *testing.T) {
 	cases := []struct {
 		Name   string
@@ -27,5 +33,22 @@ func TestGetSeq(t *testing.T) {
 		if s.Int64() != c.Int64 {
 			t.Errorf("want %d got %d", c.Int64, s.Int64())
 		}
+	}
+}
+
+func TestCreateStruct(t *testing.T) {
+	ts1 := testStruct{
+		ID:           GetSeq("testStruct.id").Int64(),
+		UniqueNumber: GetSeq("testStruct.UniqueNumber").Int(),
+		UniqueString: GetSeq("testStruct.uniqueNumber").String(),
+	}
+	ts2 := testStruct{
+		ID:           GetSeq("testStruct.id").Int64(),
+		UniqueNumber: GetSeq("testStruct.UniqueNumber").Int(),
+		UniqueString: GetSeq("testStruct.uniqueNumber").String(),
+	}
+
+	if ts1.ID == ts2.ID {
+		t.Errorf("ts1.ID == ts2.ID")
 	}
 }
