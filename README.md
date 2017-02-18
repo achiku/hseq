@@ -1,6 +1,6 @@
 # hseq
 
-[![Build Status](https://travis-ci.org/achiku/hseq?branch=master)](https://travis-ci.org/achiku/hseq)
+[![Build Status](https://travis-ci.org/achiku/hseq.svg?branch=master)](https://travis-ci.org/achiku/hseq)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/achiku/hseq/master/LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/github.com/achiku/hseq)](https://goreportcard.com/report/github.com/achiku/hseq)
 
