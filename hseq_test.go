@@ -23,7 +23,7 @@ func TestGetSeq(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		s := GetSeq(c.Name)
+		s := Get(c.Name)
 		if s.String() != c.String {
 			t.Errorf("want %s got %s", c.String, s.String())
 		}
@@ -38,14 +38,14 @@ func TestGetSeq(t *testing.T) {
 
 func TestCreateStruct(t *testing.T) {
 	ts1 := testStruct{
-		ID:           GetSeq("testStruct.id").Int64(),
-		UniqueNumber: GetSeq("testStruct.UniqueNumber").Int(),
-		UniqueString: GetSeq("testStruct.uniqueNumber").String(),
+		ID:           Get("testStruct.id").Int64(),
+		UniqueNumber: Get("testStruct.UniqueNumber").Int(),
+		UniqueString: Get("testStruct.uniqueNumber").String(),
 	}
 	ts2 := testStruct{
-		ID:           GetSeq("testStruct.id").Int64(),
-		UniqueNumber: GetSeq("testStruct.UniqueNumber").Int(),
-		UniqueString: GetSeq("testStruct.uniqueNumber").String(),
+		ID:           Get("testStruct.id").Int64(),
+		UniqueNumber: Get("testStruct.UniqueNumber").Int(),
+		UniqueString: Get("testStruct.uniqueNumber").String(),
 	}
 
 	if ts1.ID == ts2.ID {
